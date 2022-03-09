@@ -1,27 +1,33 @@
-const fs = require('fs');
+const readling = require('readline');
+const rl = readling.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+})
 
-const input = fs.readFileSync('./sample.txt').toString().trim().split('\n');
-// const input = fs.readFileSync('/dev/stdin').toString().split('\n');
+let input = [];
 
-const list = input.slice(1, input.length);
+rl.on('line', (line) => {
+    input.push(line);
+}).on('close', () => {
+    let T = Number(input[0])
+    
+    for (let i = 1; i <= T; i++) {11
+        
+        let N = input[i].split(' ')[0];
 
-function solution(list) {
-    list.map((row) => {
-        const data = row.split(' ');
-        const n = data[0];
         let sum = 0;
         let result = 0;
 
-        for (let index = 1; index < data.length; index++) {
-            sum += (data[index] * 1);
-        }
-        
-        for (let index = 1; index < data.length; index++) {
-            data[index] > sum/n ? result++ : null
+        for (let j = 1; j <= N; j++) {
+            sum += Number(input[i].split(' ')[j]);
         }
 
-        console.log((result / n * 100).toFixed(3) + '%')
-    })
-}
+        for (let j = 1; j <= N; j++) {
+            input[i].split(' ')[j] > sum / N ? result++ : null
+        }
 
-solution(list);
+        console.log((result / N * 100).toFixed(3) + '%')
+    }
+
+    process.exit()
+})
