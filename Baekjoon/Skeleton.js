@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 let input = []
 
 rl.on('line', function(line) {
-    line ? input.push(line * 1) : rl.close()
+    line ? input.push(line) : rl.close()
 }).on('close', function() {
 
     solution(input)
