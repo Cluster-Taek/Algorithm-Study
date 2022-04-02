@@ -5,10 +5,10 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
-let input = []
+let input = ''
 
 rl.on('line', function(line) {
-    line ? input.push(line) : rl.close()
+    input = line;
 }).on('close', function() {
 
     solution(input)
@@ -17,5 +17,8 @@ rl.on('line', function(line) {
 })
 
 function solution(input) {
-    console.log(input)
+    const A = Number(input.split(' ')[0].split('').reverse().join(''));
+    const B = Number(input.split(' ')[1].split('').reverse().join(''));
+    
+    A > B ? console.log(A) : console.log(B)
 }
