@@ -17,5 +17,5 @@ rl.on('line', function (line) {
 })
 
 function solution(input) {
-    console.log(input - 543)
+    console.log(input - (2541 - 1998))
 }
